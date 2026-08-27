@@ -1,0 +1,25 @@
+Projection matrix * Vertex position in view space
+
+let f = 1 / tan(verticalFov / 2)
+let a = width / height
+let n = the near plane, anything closer than this cannot be rendered
+
+| f/a  0    0    0 |   x
+| 0   -f    0    0 | . y
+| 0    0    0    n |   z
+| 0    0   -1    0 |   1
+
+Clip-space coordinates, pre-perspective divide (interpolation and clipping occurs here)
+
+x' = (f/a)*x
+y' = -f*y
+z' = n
+w' = -z
+
+NDC coordinates
+
+x'' = (f/a)*x/-z
+y'' = -f*y/-z
+z'' = n/-z
+
+Note: these are in [-1, 1] x and y. So you'd need to scale these to the actual size of your framebuffer to find the pixel coordinates

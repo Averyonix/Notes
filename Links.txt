@@ -101,7 +101,10 @@ Frame Pacing:
 OpenGL:
     Glad
         1.0: https://glad.dav1d.de/
-        2.0: https://gen.glad.sh/
+        2.0: https://github.com/Dav1dde/glad
+            glad_add_library(glad REPRODUCIBLE EXCLUDE_FROM_ALL LOADER API gl:core=4.6)
+
+    VAOs: https://patrick-is.cool/posts/2025/on-vaos/
 
 Normal Mapping / Bump Mapping
     Hardware mip/antialias compatible normal mapping:
@@ -270,7 +273,7 @@ PBR:
     http://filmicworlds.com/blog/everything-has-fresnel/
 
 Blending
-    Order Independent Transparnecy (OIT):
+    Order Independent Transparency (OIT):
         Ray Traced:
             https://interplayoflight.wordpress.com/2023/07/15/raytraced-order-independent-transparency/
             https://interplayoflight.wordpress.com/2023/07/30/raytraced-order-independent-transparency-part-2/

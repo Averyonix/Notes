@@ -1,0 +1,11 @@
+for better resizing on windows:
+
+- Don't idle wait to destroy old swapchains, use VK_[KHR/EXT]_swapchain_maintenance1 present fences to asynchronously track when you can destroy old swapchains
+- Use the deferred image allocation flag (also from swapchain maintenance) to reduce the amount of allocation work the driver is doing on each resize (usually you're only going to use one swapchain image per resize event, so if you have minImageCount = 4 that's 3 wasted image allocations)
+- Use swapchain scaling ONE_TO_ONE (or another mode if you prefer) to avoid having excessive presentations invalidated (this mostly stops OUT_OF_DATEs)
+- Keep rendering when you get SUBOPTIMAL from acquire
+- Render/present asynchronously from the win32 message thread in normal operation
+- Pause asynchronous rendering and perform a swapchain resize and complete at least one render/present in the WM_SIZE callback
+- After finishing a WM_SIZE message, block rendering of a new frame for up to a few milliseconds just in case a new resize event immediately follows (which you should immediately start resizing and rendering after receiving)
+
+If that sounds like a lot of work to do something that should be simple. Then yes. Yes it is.

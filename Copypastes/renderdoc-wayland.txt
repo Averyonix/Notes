@@ -1,0 +1,8 @@
+If you do want to test your app specifically under Wayland, then ```
+$ git clone https://github.com/baldurk/renderdoc
+$ cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DENABLE_UNSUPPORTED_EXPERIMENTAL_POSSIBLY_BROKEN_WAYLAND=ON
+$ cmake --build build
+$ QT_QPA_PLATFORM=xcb build/bin/qrenderdoc
+```
+
+the stupid flag enables both Wayland debugging support *and* the Wayland Qt UI. The latter of which is broken as hell, hence you need to pass `QT_QPA_PLATFORM=xcb` so that RenderDoc itself will run
