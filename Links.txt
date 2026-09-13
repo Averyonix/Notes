@@ -470,6 +470,8 @@ Icospheres
     https://mft-dev.dk/uv-mapping-sphere/
     https://www.alexisgiard.com/icosahedron-sphere/
     https://schneide.blog/2016/07/15/generating-an-icosphere-in-c/
+
+Procedural Generation (Proc Gen)
     https://procworlds.wordpress.com/
 
 Voxels:

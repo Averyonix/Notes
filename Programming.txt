@@ -1,2 +1,5 @@
 CMake:
     https://www.ravbug.com/tutorials/cmake-easy/
+
+Bithacks:
+    https://graphics.stanford.edu/~seander/bithacks.html
